@@ -16,7 +16,19 @@ const Detail = () => {
           <img src={bookDetail.volumeInfo.imageLinks?.smallThumbnail || defaultImg} alt={bookDetail.volumeInfo.title}  />
           </DetailImg>
         <Description>{bookDetail.volumeInfo.description}</Description>
-        <InfoPart></InfoPart>
+        <InfoPart>
+        <p>
+            {bookDetail.volumeInfo.authors?.map((item) => (
+              <span key={item}>{item}</span>
+            ))}
+          </p>
+          <p>
+            {bookDetail.volumeInfo.publishedDate}{" "}
+            {bookDetail.volumeInfo.publisher && (
+              <span>/ {bookDetail.volumeInfo.publisher} </span>
+            )}
+          </p>
+        </InfoPart>
       </DetailPart>
     </DetailContainer>
   )

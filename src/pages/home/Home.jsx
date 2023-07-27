@@ -13,6 +13,7 @@ const Home = () => {
     const [bookData, setBookData] = useState([]);
 
     const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=${selectType}&key=${APP_KEY}`;
+    
     const getBooks =async () => {
     
       try {
