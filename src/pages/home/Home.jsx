@@ -6,14 +6,15 @@ import homeImg from "../../assets/books.jpg"
 import Card from '../../components/card/Card';
 
 const Home = () => {
-    const apiKey = process.env.REACT_APP_apiKey;
+  const APP_KEY = process.env.REACT_APP_apiKey;
 
     const [query, setQuery] = useState("");
     const [selectType, setSelectType] = useState("all");
     const [bookData, setBookData] = useState([]);
 
+    const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=${selectType}&key=${APP_KEY}`;
     const getBooks =async () => {
-      const url = `https://www.googleapis.com/books/v1/volumes?q=${query}&printType=${selectType}&key=${apiKey}`
+    
       try {
         let {data} = await axios(url)
         // console.log(data.items);
